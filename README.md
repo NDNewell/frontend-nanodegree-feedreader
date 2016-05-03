@@ -6,14 +6,14 @@
 * This project consisted of being given a web-based application that reads RSS
   feeds. The original developer included an incomplete testing suite using [
   Jasmine](http://jasmine.github.io/). The project aim was to complete the
-  testing suite.
+  testing suite by writing tests that pass.
 
 ### Instructions
 ----------------
 
-* Run index.html in your browser or
+* Run index.html in your browser
 
-  Or
+  or
 
 * Open https://github.com/NDNewell/frontend-nanodegree-feedreader
 
@@ -41,8 +41,6 @@ its work, there is at least a single .entry element within the .feed container
 that the content actually changes (used Jasmine's beforeEach and asynchronous
 done() functions).
 
-#### All Tests Created Pass
---------------------------
 
 ###  Author
 -----------
@@ -50,7 +48,7 @@ done() functions).
   * Nicholas Newell
 
 
-###  Resources used
+###  Resources
 -------------------
 
   * Udacity: Rethinking Testing
