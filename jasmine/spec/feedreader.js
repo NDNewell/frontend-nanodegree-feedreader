@@ -42,7 +42,7 @@ $(function() {
         it('Name is defined', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
-                expect(feed.length).not.toBe(0);
+                expect(feed.name.length).not.toBe(0);
             });
         });
     });
@@ -70,43 +70,46 @@ $(function() {
 
         // Load the 'loadFeed' function first
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         /* Once the 'loadFeed' function has finished check that there is at
          * least a single entry in the container.
          */
-        it('there should be at least a single entry when feed is loaded', function(done) {
-            var container = $('.feed');
+        it('there should be at least a single entry when feed is loaded', function() {
+            var entries = $('.entry').length;
 
-            expect(container.length).toBeGreaterThan(0);
-            done();
+            expect(entries).toBeGreaterThan(0);
         });
     });
 
     describe('New Feed Selection', function() {
-        var contentDefault,
-            contentNew,
+        var contentOne,
+            contentTwo,
             feed = $('.feed');
 
         beforeEach(function(done) {
 
-            // Save default content in feed
-            contentDefault = feed.html();
+            // Load first feed and its content
+            loadFeed(0, function() {
 
-            // Load the feed with different content
-            loadFeed(1, function() {
-                contentNew = feed.html();
-                done();
+                // Save feed's content
+                contentOne = feed.html();
+
+                // Load second feed with different content
+                loadFeed(1, function() {
+
+                    // Save feed's content
+                    contentTwo = feed.html();
+                    done();
+                });
             });
         });
 
         // Ensure that the new content is different from the old content
-        it('the content changes when a new feed is loaded', function(done) {
-            expect(contentNew).not.toBe(contentDefault);
-            done();
+        it('the content changes when a new feed is loaded', function() {
+
+            expect(contentTwo).not.toBe(contentOne);
         });
     });
 }());
