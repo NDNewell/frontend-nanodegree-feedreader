@@ -1,4 +1,4 @@
-## Feed Reader Project
+## UdaciFeeds (Feed Reader Project)
 
 ### Overview
 ------------
